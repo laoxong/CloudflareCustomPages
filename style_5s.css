@@ -1,0 +1,210 @@
+﻿body {
+    margin: 0 auto;
+    overflow: hidden;
+}
+/*=============第一页=============*/	
+.name{   
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #FF512F;
+    font-weight: 700;
+    text-shadow: 0px 0px 21px #ffd800;
+    background-image: linear-gradient(90deg, #ffd800 0%, #ff512f 100%, #fff);
+    animation: glow-animation 2s infinite linear;
+    color: #FFC0CB;
+    box-sizing: border-box;
+    vertical-align: inherit;
+}
+.name2{   
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #FF512F;
+    font-weight: 700;
+    text-shadow: 0px 0px 3px #ffd800;
+    background-image: linear-gradient(90deg, #ffd800 0%, #ff512f 100%, #fff);
+    animation: glow-animation 2s infinite linear;
+    color: #FFC0CB;
+    box-sizing: border-box;
+    vertical-align: inherit;
+}
+@keyframes glow-animation{
+    0%{filter:hue-rotate(-360deg)}
+    100%{filter:hue-rotate(360deg)}
+}
+
+.header {
+    margin: 0 auto;
+    width: 100%;
+    height: 640px;
+    background-color: #000;
+    position: relative;
+}
+.header canvas {
+    width: 100%;
+    height: auto/*默认全屏显示 可自己设置高度640px*/;
+    display: inline-block;
+    vertical-align: baseline;
+    z-index: -1;
+}
+.header .canvaszz {  /*用来解决视频右键菜单，用于视频上面的遮罩层*/
+    width: 100%;
+    background-image: url(../static/in_top_bj.jpg);
+    height: 640px;
+    position: absolute;
+    z-index: 10;
+    filter: alpha(opacity=40);
+    -moz-opacity: 0.4;
+    -khtml-opacity: 0.4;
+    opacity: 0.4;
+}
+.header .nav {
+    width: 804px;
+    height: auto;
+    position: absolute;
+    z-index: 30;
+    top: 420px;
+    left: 50%;
+    margin-left: -400px;
+	
+}
+.header .top_2 {
+    margin: 0 auto;
+    width: 100%;
+    position: absolute;
+    z-index: 30;
+    top: 130px;
+    font-size: 52px;
+    font-family: "Microsoft YaHei UI Light", "Microsoft YaHei UI";
+    color: #199cc4;
+    text-align: center;
+}
+.header .nav a.gv{
+    width: 804px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    margin: -150px 0px 0px 0px;
+    color: #066197;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.header .topcn {
+    width: 980px;
+    top: 200px;
+    left: 50%;
+    margin-left: -490px;
+    position: absolute;
+    z-index: 20;
+}
+
+.container {
+  margin: 80px auto;
+  width: 640px;
+  text-align: center;
+}
+.container .progress {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.progress {
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.progress-bar {
+  position: relative;
+  height: 24px;
+  border-radius: 4px;
+  -webkit-transition: 0.4s linear;
+  -moz-transition: 0.4s linear;
+  -o-transition: 0.4s linear;
+  transition: 0.4s linear;
+  -webkit-transition-property: width, background-color;
+  -moz-transition-property: width, background-color;
+  -o-transition-property: width, background-color;
+  transition-property: width, background-color;
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+}
+.progress-bar:before, .progress-bar:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.progress-bar:after {
+  z-index: 2;
+  bottom: 45%;
+  border-radius: 4px;
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+}
+
+/*
+ * Note: using adjacent or general sibling selectors combined with
+ *       pseudo classes doesn't work in Safari 5.0 and Chrome 12.
+ *       See this article for more info and a potential fix:
+ *       http://css-tricks.com/webkit-sibling-bug/
+ */
+#five:checked ~ .progress > .progress-bar {
+  width: 5%;
+  background-color: #f63a0f;
+}
+
+#twentyfive:checked ~ .progress > .progress-bar {
+  width: 25%;
+  background-color: #f27011;
+}
+
+#fifty:checked ~ .progress > .progress-bar {
+  width: 50%;
+  background-color: #f2b01e;
+}
+
+#seventyfive:checked ~ .progress > .progress-bar {
+  width: 75%;
+  background-color: #f2d31b;
+}
+
+#onehundred:checked ~ .progress > .progress-bar {
+  width: 100%;
+  background-color: #86e01e;
+}
+
+.radio {
+  display: none;
+}
+
+.label {
+  display: inline-block;
+  margin: 0 5px 20px;
+  padding: 3px 8px;
+  color: #aaa;
+  text-shadow: 0 1px black;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.radio:checked + .label {
+  color: white;
+  background: rgba(0, 0, 0, 0.25);
+}
+.container {
+    margin: -300px calc(50% - 178px);
+    width: 300px;
+    text-align: center;
+}
+
+
+

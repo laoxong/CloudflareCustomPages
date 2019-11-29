@@ -1,0 +1,165 @@
+﻿<!-----沧水博客-Github url：https://github.com/CangShui/CloudflareCustomPages ----->
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>请等待五秒 - 沧水的博客</title>
+<meta name="description" content="沧水的博客！记录生活随写和自己学习运维的点点滴滴，分享一些你们想要的羊毛干货和免费资源，制作一些你们可能需要的脚本编程，以及许多好玩的实用软件和游戏娱乐，关注我的博客，它会告诉你更多！">
+<meta name="keywords" content="沧水,沧水博客,网站运维,系统运维,网页制作,操作系统,VPS购买,脚本编程,资源分享,免费资源,游戏娱乐,实用软件,生活随写">		
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="https://cdn.jsdelivr.net/gh/CangShui/CloudflareCustomPages@1.5/anime%20style/static/style_5s.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.jsdelivr.net/gh/CangShui/CloudflareCustomPages@1.5/anime%20style/static/jquery_5s.min.js"></script>
+
+
+</head>
+<body>
+<audio src="https://cdn.jsdelivr.net/gh/CangShui/CloudflareCustomPages@1.5/anime%20style/static/vk85-56gh.ogg" autoplay></audio>
+ <div style="display:none;vertical-align: inherit;">
+    ::IM_UNDER_ATTACK_BOX::
+</div>
+<div class="header" id="demo">
+<div class="top_2 name"><a class="name">沧水博客</a></div>
+  <div class="nav"> <a class="gv name2">正在加载，请耐心等待五秒......</a> </div> 
+  <div class="canvaszz"> </div>
+  <canvas id="canvas"> </canvas>
+</div>
+<div class="container">
+<section class="container">
+
+    <input type="radio" class="radio" name="progress" value="five" id="five">
+    <label for="five" class="label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5％</font></font></label>
+
+    <font style="vertical-align: inherit;"><label for="twentyfive" class="label"><font style="vertical-align: inherit;">25％</font></label><label for="fifty" class="label"><font style="vertical-align: inherit;">50％</font></label><label for="seventyfive" class="label"><font style="vertical-align: inherit;">75％</font></label><label for="onehundred" class="label"><font style="vertical-align: inherit;">100％</font></label></font><input type="radio" class="radio" name="progress" value="twentyfive" id="twentyfive" checked="">
+    <label for="twentyfive" class="label"><font style="vertical-align: inherit;"></font></label>
+
+    <input type="radio" class="radio" name="progress" value="fifty" id="fifty">
+    <label for="fifty" class="label"><font style="vertical-align: inherit;"></font></label>
+
+    <input type="radio" class="radio" name="progress" value="seventyfive" id="seventyfive">
+    <label for="seventyfive" class="label"><font style="vertical-align: inherit;"></font></label>
+
+    <input type="radio" class="radio" name="progress" value="onehundred" id="onehundred">
+    <label for="onehundred" class="label"><font style="vertical-align: inherit;"></font></label>
+    <div class="progress name">
+      <div class="progress-bar"></div>
+    </div>
+    
+  </section>
+   </div>
+<!-----HEADER END-----> 
+<script>
+			//宇宙特效
+"use strict";
+var canvas = document.getElementById('canvas'),
+    ctx = canvas.getContext('2d'),
+    w = canvas.width = window.innerWidth,
+    h = canvas.height = window.innerHeight,
+
+    hue = 217,
+    stars = [],
+    count = 0,
+    maxStars = 1300; //星星数量
+
+var canvas2 = document.createElement('canvas'),
+    ctx2 = canvas2.getContext('2d');
+canvas2.width = 100;
+canvas2.height = 100;
+var half = canvas2.width / 2,
+    gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
+gradient2.addColorStop(0.025, '#CCC');
+gradient2.addColorStop(0.1, 'hsl(' + hue + ', 61%, 33%)');
+gradient2.addColorStop(0.25, 'hsl(' + hue + ', 64%, 6%)');
+gradient2.addColorStop(1, 'transparent');
+
+ctx2.fillStyle = gradient2;
+ctx2.beginPath();
+ctx2.arc(half, half, half, 0, Math.PI * 2);
+ctx2.fill();
+
+// End cache
+
+function random(min, max) {
+    if (arguments.length < 2) {
+        max = min;
+        min = 0;
+    }
+
+    if (min > max) {
+        var hold = max;
+        max = min;
+        min = hold;
+    }
+
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function maxOrbit(x, y) {
+    var max = Math.max(x, y),
+        diameter = Math.round(Math.sqrt(max * max + max * max));
+    return diameter / 2;
+    //星星移动范围，值越大范围越小，
+}
+
+var Star = function() {
+
+    this.orbitRadius = random(maxOrbit(w, h));
+    this.radius = random(60, this.orbitRadius) / 8;
+    //星星大小
+    this.orbitX = w / 2;
+    this.orbitY = h / 2;
+    this.timePassed = random(0, maxStars);
+    this.speed = random(this.orbitRadius) / 50000;
+    //星星移动速度
+    this.alpha = random(2, 10) / 10;
+
+    count++;
+    stars[count] = this;
+}
+
+Star.prototype.draw = function() {
+    var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
+        y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
+        twinkle = random(10);
+
+    if (twinkle === 1 && this.alpha > 0) {
+        this.alpha -= 0.05;
+    } else if (twinkle === 2 && this.alpha < 1) {
+        this.alpha += 0.05;
+    }
+
+    ctx.globalAlpha = this.alpha;
+    ctx.drawImage(canvas2, x - this.radius / 2, y - this.radius / 2, this.radius, this.radius);
+    this.timePassed += this.speed;
+}
+
+for (var i = 0; i < maxStars; i++) {
+    new Star();
+}
+
+function animation() {
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.globalAlpha = 0.5; //尾巴
+    ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 2)';
+    ctx.fillRect(0, 0, w, h)
+
+    ctx.globalCompositeOperation = 'lighter';
+    for (var i = 1, l = stars.length; i < l; i++) {
+        stars[i].draw();
+    };
+
+    window.requestAnimationFrame(animation);
+}
+
+animation();
+
+</script>
+
+<script>
+setTimeout(function(){document.getElementById("five").checked=true},80)
+setTimeout(function(){document.getElementById("twentyfive").checked=true},1200)
+setTimeout(function(){document.getElementById("fifty").checked=true},2300)
+setTimeout(function(){document.getElementById("seventyfive").checked=true},3400)
+setTimeout(function(){document.getElementById("onehundred").checked=true},4500)
+</script>
+</body>
+</html>
