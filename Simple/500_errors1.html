@@ -1,0 +1,74 @@
+<!---github Link ： https://github.com/CangShui/CloudflareCustomPages  -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>5XX错误 | 无法连接源服务器</title>
+<style type="text/css">
+    html, body {width: 100%; height: 100%; margin: 0; padding: 0;}
+    body {background-color: #ffffff; font-family: Helvetica, Arial, sans-serif; font-size: 100%;}
+    h1 {font-size: 1.5em; color: #404040; text-align: center;}
+    p {font-size: 1em; color: #404040; text-align: center; margin: 10px 0 0 0;}
+    #spinner {margin: 0 auto 30px auto; display: block;}
+    .attribution {margin-top: 20px;}
+    @-webkit-keyframes bubbles { 33%: { -webkit-transform: translateY(10px); transform: translateY(10px); } 66% { -webkit-transform: translateY(-10px); transform: translateY(-10px); } 100% { -webkit-transform: translateY(0); transform: translateY(0); } }
+    @keyframes bubbles { 33%: { -webkit-transform: translateY(10px); transform: translateY(10px); } 66% { -webkit-transform: translateY(-10px); transform: translateY(-10px); } 100% { -webkit-transform: translateY(0); transform: translateY(0); } }
+    .bubbles { background-color: #404040; width:15px; height: 15px; margin:2px; border-radius:100%; -webkit-animation:bubbles 0.6s 0.07s infinite ease-in-out; animation:bubbles 0.6s 0.07s infinite ease-in-out; -webkit-animation-fill-mode:both; animation-fill-mode:both; display:inline-block; }
+  #cf-content{display:block !important;}
+  </style>
+<SCRIPT type="text/javascript">        
+            var maxtime = 15; 
+            function CountDown() {
+                if (maxtime >= 0) {
+                    minutes = Math.floor(maxtime / 60);
+                    seconds = Math.floor(maxtime % 60);
+                    msg = "服务器失去响应，请稍候 " + seconds + " 秒,再刷新尝试";
+                    
+                    if (maxtime == 0){msg = "即将重新刷新！";location.reload() ;}
+			document.all["timer"].innerHTML = msg;
+			
+                        --maxtime;
+                } else{
+                    clearInterval(timer);
+                   
+                }
+            }
+            timer = setInterval("CountDown()", 1000);                
+        </SCRIPT>
+</head>
+<body>
+<div style="display:none">
+::CLOUDFLARE_ERROR_500S_BOX::
+</div>
+<table width="100%" height="100%" cellpadding="20">
+<tbody><tr>
+<td align="center" valign="middle">
+<div class="cf-browser-verification cf-im-under-attack">
+
+<div id="cf-content" style="display:none">
+<div>
+<div class="bubbles"></div>
+<div class="bubbles"></div>
+<div class="bubbles"></div>
+</div>
+
+<h1><div data-translate="checking_browser" id="timer"></div> </h1>
+<p data-translate="allow_5_secs">源服务器发生5XX错误,您目前无法访问我们</p>	
+<p data-translate="process_is_automatic">事件编号：::RAY_ID::<br>您的IP::CLIENT_IP:: ::GEO::</p>
+
+</div>
+
+</div>
+<div class="attribution">
+
+<br />
+
+</div>
+</td>
+</tr>
+</tbody></table>
+</body></html> 
+ 
