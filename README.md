@@ -27,8 +27,8 @@
 >>
 >> > 2020/6/7 更新更多图片,旧版本在`old`文件夹
 >
->Hjz-hfkj 
+>DevHjz 
 >
->>Chinese page [https://github.com/Hjz-hfkj/Cloudflare-Chinese-Page-/](https://github.com/Hjz-hfkj/Cloudflare-Chinese-Page-/)
+>>Chinese page [https://github.com/STEAM-Lab/Cloudflare-Chinese-Page](https://github.com/STEAM-Lab/Cloudflare-Chinese-Page)
 >>
 >>依据Cloudflare 官方的界面进行改版的（已翻译为中文）
