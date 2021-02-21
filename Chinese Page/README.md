@@ -8,13 +8,9 @@
 
 已改为中文，HTML语言编写，可以自己编辑其中的文字。 避免了部分访问者因看不懂英文直接关闭。
 
-网站 <https://devhjz.eu.org> 
+网站 <https://Hjz.ac.cn/> 
 
-演示地址：（已开启5秒盾）
+统一演示地址：
+https://chinese.pages.dev/
 
-+ IP拦截：<https://devhjz.eu.org/cf/IP.html>
-+ WAF拦截：<https://devhjz.eu.org/cf/WAF.html>
-+ 5秒盾：<https://devhjz.eu.org/cf/5s.html>
-+ 质询：<https://devhjz.eu.org/cf/captcha.html>
-
-captchamy.html为旧版，现已停止使用。
+注：captchamy.html为旧版，现已停止使用。
